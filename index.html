@@ -22,14 +22,13 @@
         }
 
         .card {
-            background: rgba(26, 26, 36, 0.8);
+            background-color: #1A1A24;
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             padding: 50px;
             text-align: center;
             max-width: 500px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
         }
 
         h1 {
@@ -37,9 +36,7 @@
             font-weight: 900;
             letter-spacing: 2px;
             margin: 0 0 15px 0;
-            background: linear-gradient(90deg, #FFFFFF, #A78BFA);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #A78BFA; /* Cor sólida em vez de degradê transparente para evitar bugs */
         }
 
         p {
@@ -58,7 +55,7 @@
         }
 
         .badge {
-            background: rgba(109, 40, 217, 0.2);
+            background-color: rgba(109, 40, 217, 0.2);
             border: 1px solid rgba(109, 40, 217, 0.5);
             color: #C4B5FD;
             padding: 8px 16px;
@@ -69,7 +66,7 @@
 
         .btn {
             display: inline-block;
-            background: #6D28D9;
+            background-color: #6D28D9;
             color: white;
             text-decoration: none;
             padding: 15px 30px;
@@ -78,4 +75,26 @@
             transition: all 0.3s ease;
         }
 
-        .btn:hover
+        .btn:hover {
+            background-color: #5B21B6;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>GGame Launcher</h1>
+        <p>Um launcher minimalista, elegante e focado em imersão para sua biblioteca de jogos no Windows.</p>
+        
+        <div class="features">
+            <span class="badge">Desenvolvido em Flutter</span>
+            <span class="badge">Navegação via Gamepad</span>
+            <span class="badge">Diário Integrado</span>
+        </div>
+
+        <a href="https://github.com/" class="btn">Ver Repositório</a>
+    </div>
+
+</body>
+</html>
