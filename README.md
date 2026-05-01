@@ -2,8 +2,7 @@
 
 > Um launcher de jogos para PC minimalista.
 
-<img width="1571" height="105" alt="image" src="https://github.com/user-attachments/assets/bcf5286f-875a-4b7f-a4c8-fffd931abf20" />
-
+<img width="2547" height="710" alt="banner" src="https://github.com/user-attachments/assets/01846828-0514-440b-8f5e-40592eefc512" />
 
 ---
 
