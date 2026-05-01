@@ -28,7 +28,7 @@ Aqui está uma olhada no GGameLauncher em ação:
 
 *Para quem prefere ver toda a biblioteca de uma vez.*
 
-### Diário de Jogos (Hall da Fama)
+### Diário de Jogos 
 <img width="1565" height="977" alt="image" src="https://github.com/user-attachments/assets/032006ea-7b90-4716-bb21-8de6e3035f31" />
 *Acompanhe seu progresso, dê notas e gere "Cards de Conquista" para compartilhar.*
 
