@@ -22,7 +22,8 @@
 Aqui está uma olhada no GGameLauncher em ação:
 
 ### Visão Principal (Carrossel / Banner)
-<img width="1579" height="989" alt="image" src="https://github.com/user-attachments/assets/e9a98820-8f8b-4e32-bb63-2e7bd2d4f16c" />
+<img width="1575" height="980" alt="image" src="https://github.com/user-attachments/assets/822ce845-1e43-4c38-bb6a-851fd572e6ed" />
+
 
 *Navegação fluida com artes wide em tela cheia e informações automáticas.*
 
