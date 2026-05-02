@@ -6,7 +6,7 @@
 ## ✨ Destaques e Funcionalidades
 
 - 🕹️ **Navegação Nativa por Controle:** Mapeado para controles de Xbox/PlayStation. Navegue, edite e inicie jogos sem tocar no mouse.
-- 📖 **Diário de Jogos (Journal):** Muito mais que um atalho. Registre suas vitórias no *Hall da Fama*, congele jogos na *Geladeira* e acompanhe os próximos lançamentos no *Radar*.
+- 📖 **Diário de Jogos (Journal):** Muito mais que um atalho. Registre os jogos Finalizados, congele jogos na *Geladeira* e acompanhe os próximos lançamentos no *Radar*.
 - 🤖 **Auto-Cura e Integração RAWG:** Adicionou um `.exe` e esqueceu a capa? O launcher busca automaticamente artes em alta resolução (SteamGridDB), sinopses traduzidas, gênero e notas do Metacritic (RAWG API) em segundo plano.
 - 🎨 **Glassmorphism e UI Fluida:** Interface limpa com desfoque dinâmico (blur), artes wide de fundo, modo Grid ou Carrossel, e destaques sutis em neon.
 - ⚡ **Leve e Otimizado:** Minimiza para a bandeja do sistema ou fecha completamente ao iniciar um jogo para liberar 100% da sua memória RAM.
