@@ -1,6 +1,7 @@
 <img width="2547" height="710" alt="abbeer" src="https://github.com/user-attachments/assets/9c4c3f89-5e00-44b5-b1c1-71e4bb434862" />
 
-> Um launcher de jogos para PC minimalista.
+
+Um launcher de jogos para PC minimalista.
 ---
 
 ## ✨ Destaques e Funcionalidades
