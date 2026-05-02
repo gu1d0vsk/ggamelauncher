@@ -5,96 +5,222 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GGame Launcher</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap');
+
+        :root {
+            --bg-dark: #0D0D12;
+            --primary: #6D28D9;
+            --primary-light: #A78BFA;
+            --text-gray: #A0A0A8;
+        }
 
         body {
             margin: 0;
             padding: 0;
             font-family: 'Inter', sans-serif;
-            background-color: #0D0D12;
-            background-image: radial-gradient(circle at top left, rgba(109, 40, 217, 0.15), transparent 50%),
-                              radial-gradient(circle at bottom right, rgba(109, 40, 217, 0.05), transparent 50%);
+            background-color: var(--bg-dark);
+            /* Gradientes originais mantidos e ajustados para tela cheia */
+            background-image: radial-gradient(circle at top left, rgba(109, 40, 217, 0.15), transparent 40%),
+                              radial-gradient(circle at bottom right, rgba(109, 40, 217, 0.1), transparent 50%);
             color: #FFFFFF;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow-x: hidden;
         }
 
-        .card {
-            background-color: #1A1A24;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
+        /* Container principal dividido em 2 colunas */
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            width: 90%;
+            gap: 60px;
+            z-index: 10;
+        }
+
+        /* Coluna da Esquerda (Texto e Botão) */
+        .content {
+            flex: 1;
+            background: rgba(26, 26, 36, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
             padding: 50px;
-            text-align: center;
-            max-width: 500px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             font-weight: 900;
-            letter-spacing: 2px;
-            margin: 0 0 15px 0;
-            color: #A78BFA; /* Cor sólida em vez de degradê transparente para evitar bugs */
+            letter-spacing: 1px;
+            margin: 0 0 10px 0;
+            color: #FFFFFF;
+            text-shadow: 0 0 20px rgba(109, 40, 217, 0.5);
+        }
+
+        .highlight {
+            color: var(--primary-light);
         }
 
         p {
-            font-size: 1.1rem;
-            color: #A0A0A8;
+            font-size: 1.15rem;
+            color: var(--text-gray);
             line-height: 1.6;
             margin-bottom: 30px;
+            max-width: 90%;
         }
 
+        /* Badges atualizados com grid */
         .features {
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 30px;
+            gap: 12px;
+            margin-bottom: 40px;
             flex-wrap: wrap;
         }
 
         .badge {
-            background-color: rgba(109, 40, 217, 0.2);
-            border: 1px solid rgba(109, 40, 217, 0.5);
-            color: #C4B5FD;
+            background-color: rgba(109, 40, 217, 0.15);
+            border: 1px solid rgba(109, 40, 217, 0.4);
+            color: #E8DFF5;
             padding: 8px 16px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: bold;
+            border-radius: 8px; /* Mais moderno que totalmente redondo */
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .btn {
-            display: inline-block;
-            background-color: #6D28D9;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--primary);
             color: white;
             text-decoration: none;
-            padding: 15px 30px;
+            padding: 16px 36px;
             border-radius: 12px;
             font-weight: bold;
+            font-size: 1.1rem;
             transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(109, 40, 217, 0.3);
         }
 
         .btn:hover {
             background-color: #5B21B6;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(109, 40, 217, 0.5);
+        }
+
+        /* Coluna da Direita (Slideshow) */
+        .slideshow-container {
+            flex: 1;
+            position: relative;
+            height: 600px;
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out, transform 3s ease-in-out;
+            transform: scale(1.05); /* Leve zoom in para dar movimento */
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Responsividade para celulares */
+        @media (max-width: 968px) {
+            .hero-container {
+                flex-direction: column;
+                margin-top: 40px;
+                margin-bottom: 40px;
+            }
+            .content {
+                padding: 30px;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            .slideshow-container {
+                height: 300px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <h1>GGame Launcher</h1>
-        <p>Um launcher minimalista, elegante e focado em imersão para sua biblioteca de jogos no Windows.</p>
+    <div class="hero-container">
         
-        <div class="features">
-            <span class="badge">Desenvolvido em Flutter</span>
-            <span class="badge">Navegação via Gamepad</span>
-            <span class="badge">Diário Integrado</span>
+        <!-- Coluna de Informações -->
+        <div class="content">
+            <h1>GGame <span class="highlight">Launcher</span></h1>
+            <p>Um painel minimalista, elegante e focado em imersão para organizar e iniciar sua biblioteca de jogos no Windows.</p>
+            
+            <div class="features">
+                <span class="badge">✦ Glassmorphism UI</span>
+                <span class="badge">🎮 Navegação Nativa via Gamepad</span>
+                <span class="badge">📖 Diário de Jogos</span>
+                <span class="badge">☁️ Integração RAWG API</span>
+                <span class="badge">🔍 Varredura Inteligente</span>
+            </div>
+
+            <a href="https://github.com/SEU-USUARIO/ggamelauncher" class="btn" target="_blank">
+                <!-- Ícone do GitHub em SVG -->
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.379.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+                </svg>
+                Acessar Repositório
+            </a>
         </div>
 
-        <a href="https://github.com/" class="btn">Ver Repositório</a>
+        <!-- Coluna do Slideshow -->
+        <div class="slideshow-container">
+            <!-- Coloque o caminho das suas imagens reais aqui! -->
+            <img width="1575" height="980" alt="image" src="https://github.com/user-attachments/assets/822ce845-1e43-4c38-bb6a-851fd572e6ed" />
+            <img width="1574" height="983" alt="image" src="https://github.com/user-attachments/assets/f0008462-5155-4ca3-bcd6-cdb3fedc5347" />
+            <img width="1568" height="970" alt="image" src="https://github.com/user-attachments/assets/1358e740-8b64-47e3-8ea1-47cf9b6da7f1" />
+            <img width="1565" height="977" alt="image" src="https://github.com/user-attachments/assets/032006ea-7b90-4716-bb21-8de6e3035f31" />
+        </div>
+
     </div>
+
+    <!-- Script ultra leve para alternar as imagens -->
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            // Remove a classe 'active' da imagem atual
+            slides[currentSlide].classList.remove('active');
+            
+            // Avança para o próximo número, voltando ao 0 se chegar no final
+            currentSlide = (currentSlide + 1) % slides.length;
+            
+            // Adiciona a classe 'active' na nova imagem
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Troca de imagem a cada 4 segundos (4000 milissegundos)
+        setInterval(nextSlide, 4000);
+    </script>
 
 </body>
 </html>
