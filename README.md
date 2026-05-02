@@ -57,10 +57,13 @@ O launcher foi desenhado para brilhar nas mãos. Aqui está o mapeamento atual:
 | **Iniciar Jogo / Confirmar** | `A` | `Enter` |
 | **Voltar / Minimizar** | `B` | `Esc` |
 | **Editar Jogo Selecionado** | `X` | `E` |
-| **Próximos Lançamentos (No Radar)**| `Y` | - |
+| **Próximos Lançamentos / Diário**| `Y` | - |
 | **Adicionar Novo Jogo** | `Start` / `Menu` | - |
-| **Mudar Aba / View Mode** | `LB` / `RB` | `F2` |
+| **Mudar Aba / Modo Visualização**| `RB` | `F2` |
+| **Mudar Aba / Modo Edição** | `LB` | `M` |
 | **Alternar Ordenação** | `LT` | `Clique Mouse` |
+| **Tela Cheia / Modo Janela** | `RT` | - |
+| **Excluir Jogo** | - | `Delete` |
 | **Chamar Launcher (Em Jogo)** | `Start` + `Back` (Segurar) | `Ctrl` + `Shift` + `L` |
 
 ---
